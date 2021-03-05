@@ -11,12 +11,12 @@ mark ```yes``` or ```no``` in that column if it has already been onboarded.
 
 ####CSV Table example:
 Input:  
-|---Id---|  
+|Id|  
 |--------|  
 |01234|  
 
 Output:   
-|--Id---|--InPCS--|   
+|Id|InPCS|   
 |--------|--------|   
 |01234| yes    |   
 |56789| no     |   
