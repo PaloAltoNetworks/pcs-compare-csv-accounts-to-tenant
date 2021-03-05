@@ -9,7 +9,7 @@ cloud account ID's; ex. AWS: 012345678901, GCP: project-123, and compare the ```
 into a Prisma Cloud tenant. The script will then create a new ```.csv``` with an additional ```InPCS``` header and 
 mark ```yes``` or ```no``` in that column if it has already been onboarded.
 
-####CSV Table example:
+#### CSV Table example:
 Input:  
 |Id|  
 |--------|  
