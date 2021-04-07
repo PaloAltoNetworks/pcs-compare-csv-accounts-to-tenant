@@ -35,9 +35,8 @@ class CompareAccounts():
 
         with open(filename,'r') as csvfile:
             csvreader = csv.DictReader(csvfile)
-            fields = next(csvreader)
+            fields = csvreader
             for row in csvreader:
-                rows.append(row)
                 orgfile.append(dict(row))
                 acct_id.append(row["Id"])
 
