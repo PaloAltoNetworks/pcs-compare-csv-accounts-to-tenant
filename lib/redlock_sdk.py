@@ -11,13 +11,12 @@ class RLSession(object):
     # We retry for auth failure (401) within the SDK code. See try_wrapper().
     retry_statuses = [429, 500, 502, 503, 504]
 
-
-
-    def __init__(self,userid,userpass,customer_name,api_base):
+    def __init__(self, userid, userpass, customer_name, api_base, ca_bundle):
         self.api_id = userid
         self.api_pass = userpass
         self.cust_name = customer_name
         self.api_base_url = api_base
+        self.ca_bundle = ca_bundle
         self.auth_token = None
         self.build_client()
         return None
@@ -25,6 +24,14 @@ class RLSession(object):
     def build_client(self):
         """Build client object for class instantiation."""
         self.client = requests.Session()
+        # GlobalProtect generates 'ignore self signed certificate in certificate chain' errors.
+        # Resolve by using a valid CA bundle including the 'Palo Alto Networks Inc Root CA' used by GlobalProtect.
+        # Hint: Copy the bundle provided by the certifi module (locate via 'python -m certifi') and append the 'Palo Alto Networks Inc Root CA'
+        # Options:
+        #   1. Set 'ca_bundle' in 'configs.yml' to a valid CA bundle.
+        #   2. Set 'REQUESTS_CA_BUNDLE' to a valid CA bundle.
+        if self.ca_bundle:
+            self.client.verify = self.ca_bundle
         self.retries = Retry(total=self.max_retries,
                              status_forcelist=self.retry_statuses,
                              backoff_factor=1)

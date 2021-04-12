@@ -55,6 +55,12 @@ Output:
    Change this to apiX.prismacloud.io and populate it in the configs.yml.  
     Or go here for more information:* https://api.docs.prismacloud.io/
 
+5. If you receive GlobalProtect generates 'self-signed certificate in certificate chain' errors,
+   set ```ca_bundle``` in ```config/configs.yml``` (or set the ```REQUESTS_CA_BUNDLE``` environment variable)
+   to a valid CA bundle including the 'Palo Alto Networks Inc Root CA' used by GlobalProtect.
+   Hint: Copy the bundle provided by the certifi module (locate via 'python -m certifi')
+   and append the 'Palo Alto Networks Inc Root CA'.
+
 ### Run
 
 ```

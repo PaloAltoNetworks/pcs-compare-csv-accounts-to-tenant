@@ -9,6 +9,7 @@ class ConfigHelper(object):
         self.rl_pass = config["prisma_cloud"]["password"]
         self.rl_cust = config["prisma_cloud"]["customer_name"]
         self.rl_api_base = config["prisma_cloud"]["api_base"]
+        self.rl_ca_bundle = config["prisma_cloud"]["ca_bundle"]
         self.rl_file_name = config["prisma_cloud"]["filename"]
 
     @classmethod

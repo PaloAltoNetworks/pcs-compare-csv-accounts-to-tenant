@@ -6,8 +6,9 @@ import csv
 class CompareAccounts():
     def __init__(self):
         self.config = lib.ConfigHelper()
-        self.rl_sess = lib.RLSession(self.config.rl_user, self.config.rl_pass, self.config.rl_cust,
-                                     self.config.rl_api_base)
+        self.rl_sess = lib.RLSession(self.config.rl_user, self.config.rl_pass,
+                                     self.config.rl_cust, self.config.rl_api_base,
+                                     self.config.rl_ca_bundle)
 
     def get_pcs_accounts(self):
         self.url = "https://" + self.config.rl_api_base + "/cloud/name"

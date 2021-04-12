@@ -3,4 +3,5 @@ prisma_cloud:
   password: "<APIsecret>"
   customer_name:
   api_base: "api3.prismacloud.io"
+  ca_bundle:
   filename: "CloudAccounts.csv"
